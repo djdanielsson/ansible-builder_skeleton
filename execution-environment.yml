@@ -2,7 +2,7 @@
 version: 1
 
 build_arg_defaults:
-  EE_BASE_IMAGE: 'registry.redhat.io/ansible-automation-platform-20-early-access/ee-supported-rhel8:2.0.0'
+  EE_BASE_IMAGE: 'registry.redhat.io/ansible-automation-platform-20-early-access/ee-minimal-rhel8:latest'
 
 ansible_config: 'ansible.cfg'
 
@@ -13,6 +13,6 @@ dependencies:
 
 additional_build_steps:
   prepend: |
-    RUN pip3 install --upgrade pip setuptools
+    RUN pip3 install --upgrade pip setuptools ansible-core
   append:
     - RUN ls -la /etc
