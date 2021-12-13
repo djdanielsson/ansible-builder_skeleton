@@ -6,9 +6,10 @@
 # You can disable line with:              #
 # # yamllint disable-line                 #
 ###########################################
+ignore: |
+  .github/*
+
 rules:
-  ignore: |
-    .github/*
   braces:
     level: warning
     min-spaces-inside: 0
