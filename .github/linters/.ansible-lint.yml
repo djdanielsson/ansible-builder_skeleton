@@ -1,18 +1,53 @@
 ---
-# The exclude_paths does not appear to be working in pre-commit
-# this issue describes similar behavior but suggested fix doesn't work
-# https://github.com/ansible/ansible-lint/issues/371
-# exclude_paths:
-#  - roles/master_role_example/
-exclude_paths:
-- '.github/'
-- 'changelogs/'
+##########################
+##########################
+## Ansible Linter rules ##
+##########################
+##########################
+
+#############################
+# Exclude paths from linter #
+#############################
+#exclude_paths:
+
+########################
+# Make output parsable #
+########################
 parseable: true
-use_default_rules: true
-# https://github.com/ansible/ansible-lint/issues/808
-# with verbosity set to 1, its dumping 'unknown file type messages'
-# verbosity: 1
+
+#######################
+# Set output to quiet #
+#######################
+quiet: true
+
+#####################
+# Path to rules dir #
+#####################
+#rulesdir:
+
+################
+# Tags to skip #
+################
 skip_list:
-# YAML: Ansible lint doing yaml checks that we were already doing but without config.
-- yaml
+  - 'empty-string-compare' # Allow compare to empty string
+  - '204' # Allow string length greater than 160 chars
+  - 'no-changed-when' # False positives for running command shells
+  - 'command-instead-of-module' # Allow git commands for push, add, etc...
+  - 'command-instead-of-shell' # Allow use of shell when you want
+  - 'no-handler' # Allow step to run like handler
+
+##################
+# Tags to follow #
+##################
+#tags:
+
+#############
+# Use rules #
+#############
+use_default_rules: true
+
+#################
+# Set verbosity #
+#################
+verbosity: 1
 ...
