@@ -16,3 +16,4 @@ additional_build_steps:
     RUN pip3 install --upgrade pip setuptools ansible-core
   append:
     - RUN ls -la /etc
+...
