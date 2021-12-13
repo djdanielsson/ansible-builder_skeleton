@@ -27,3 +27,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ANSIBLE: true
+          ANSIBLE_CONFIG_FILE: .ansible-lint.yml
+          VALIDATE_YAML: true
+          YAML_CONFIG_FILE: .yaml-lint.yml
